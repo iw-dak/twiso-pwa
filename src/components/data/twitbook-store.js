@@ -8,6 +8,7 @@ export class TwitbookStore extends LitElement {
   constructor() {
     super();
     this.data = [];
+    // Todo add others data model
     this.collection = '';
   }
 

@@ -13,4 +13,4 @@ class TwitbookHeader extends LitElement {
         `;
     }
 }
-customElements.define('chat-header', TwitbookHeader);
+customElements.define('twitbook-header', TwitbookHeader);
