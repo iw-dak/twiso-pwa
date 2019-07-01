@@ -1,0 +1,17 @@
+{
+  "name": "twitbook",
+  "version": "1.0.0",
+  "description": "Twitter like app with the best UI experience",
+  "main": "index.js",
+  "repository": "git@github.com:iw-dak/twitbook.git",
+  "author": "Kaba CONDE <kabaconde15@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "firebase": "^6.2.4",
+    "lit-element": "^2.2.0"
+  },
+  "devDependencies": {
+    "polymer-cli": "^1.9.10"
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+    <title>Twitbook</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            font-family: sans-serif;
+            background-color: #fff;
+            min-height: 100vh;
+            height: 100%;
+        }
+    </style>
+    <script>
+        (() => {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('./service-worker.js', { scope: '/' }).then(req => {
+                    console.log('[Service Worker] Registration successful');
+                }).catch(console.log);
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <script src="./config.js"></script>
+    <twitbook-app unresolved></twitbook-app>
+    <script type="module"
+        src="./src/components/twitbook-app.js"></script>
+</body>
+
+</html>
