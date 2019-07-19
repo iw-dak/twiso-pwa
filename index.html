@@ -82,25 +82,34 @@
             right: 0;
             bottom: 0;
         }
+
+        chat-header>nav {
+            display: flex;
+        }
     </style>
     <script>
-        (() => {
+        /*(() => {
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('./sw.js', { scope: '/' }).then(req => {
                     console.log('[Service Worker] Registration successful');
                 }).catch(console.log);
             }
-        })();
+        })();*/
     </script>
 </head>
 
 <body>
-    <script src="./config.js"></script>
-    <twitbook-app unresolved></twitbook-app>
+    <twitbook-header></twitbook-header>
+    <div id="root"></div>
+
     <button class="add-button">Add to home screen</button>
+
     <script src="./src/js/index.js"></script>
+    <script src="./config.js"></script>
     <script type="module"
-        src="./src/components/twitbook-app.js"></script>
+        src="./src/js/router.js"></script>
+    <script type="module"
+        src="./src/components/layout/twitbook-header.js"></script>
 </body>
 
 </html>
