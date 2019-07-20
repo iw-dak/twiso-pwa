@@ -1,6 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
 
-export class TwitbookLogin extends LitElement {
+class TwitbookFeeds extends LitElement {
+
+    constructor() {
+        super();
+      }
 
     static get styles() {
         return css`
@@ -11,8 +15,7 @@ export class TwitbookLogin extends LitElement {
     }
 
     render() {
-        return html`<p>Se connecter</p>`;
+        return html`<p>TwitbookFeeds</p>`;
     }
 }
-
-customElements.define('twitbook-login', TwitbookLogin);
+customElements.define('twitbook-feeds', TwitbookFeeds);

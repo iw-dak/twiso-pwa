@@ -1,4 +1,4 @@
-import { LitElement, html, css} from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 
 class TwitbookNotFound extends LitElement {
 
@@ -12,7 +12,7 @@ class TwitbookNotFound extends LitElement {
 
     render() {
         return html`
-        <span>404</span>
+        <span>Cette page est introuvable</span>
         `;
     }
 }

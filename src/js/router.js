@@ -1,7 +1,10 @@
-import '../components/pages/twitbook-feed'
-import '../components/pages/twitbook-login'
+import '../components/pages/twitbook-feeds'
 import '../components/pages/twitbook-messages'
 import '../components/pages/twitbook-not-found'
+import '../components/pages/twitbook-notifications'
+import '../components/pages/twitbook-auth'
+import '../components/layout/twitbook-app'
+
 import { Router } from '@vaadin/router';
 
 window.addEventListener('load', () => {
@@ -11,21 +14,15 @@ window.addEventListener('load', () => {
 function initRouter() {
     const router = new Router(document.querySelector('#root'));
     router.setRoutes([
+        { path: '/', component: 'twitbook-auth' },
         {
-            path: '/',
-            component: 'twitbook-feed'
-        },
-        {
-            path: '/connexion',
-            component: 'twitbook-login'
-        },
-        {
-            path: '/messages',
-            component: 'twitbook-messages'
-        },
-        {
-            path: '/notifications',
-            component: 'twitbook-notifications'
+            path: '/account', component: 'twitbook-app',
+            children: [
+                { path: '/feeds', component: 'twitbook-feeds' },
+                { path: '/messages', component: 'twitbook-messages' },
+                { path: '/notifications', component: 'twitbook-notifications' },
+                { path: '(.*)', component: 'twitbook-not-found' }
+            ]
         },
         {
             path: '(.*)',

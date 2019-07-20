@@ -1,4 +1,4 @@
-import { LitElement } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 
 export class TwitbookNotifications extends LitElement {
     static get styles() {
