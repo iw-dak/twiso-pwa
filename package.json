@@ -8,14 +8,20 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "gen": "npx workbox generateSW"
+        "gen": "npx workbox generateSW",
+        "dev": "npx polymer serve --port 8081 | yarn run watch",
+        "test": "npx polymer test",
+        "watch": "npx browser-sync start --proxy localhost:8081 --port 9000 --files \"src/**/*.*, \"**/*.html\", *.js\""
     },
     "dependencies": {
-        "firebase": "^6.2.4",
+        "@vaadin/router": "^1.2.1",
+        "browser-sync": "^2.26.7",
+        "firebase": "^6.3.1",
+        "global": "^4.4.0",
         "lit-element": "^2.2.0"
     },
     "devDependencies": {
-        "workbox-cli": "^4.3.1",
-        "polymer-cli": "^1.9.10"
+        "polymer-cli": "^1.9.11",
+        "workbox-cli": "^4.3.1"
     }
 }

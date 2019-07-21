@@ -1,7 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
-import './layout/twitbook-header'
 
-export class TwitbookApp extends LitElement {
+class TwitbookNotFound extends LitElement {
 
     static get styles() {
         return css`
@@ -13,9 +12,8 @@ export class TwitbookApp extends LitElement {
 
     render() {
         return html`
-        <twitbook-header></twitbook-header>
-        <p>Content</p>
+        <span>Cette page est introuvable</span>
         `;
     }
 }
-customElements.define('twitbook-app', TwitbookApp);
+customElements.define('twitbook-not-found', TwitbookNotFound);

@@ -1,15 +1,59 @@
 import { LitElement, html, css } from 'lit-element';
+import { TwitbookHeaderStyles } from '../../css/twitbook-header-styles';
 
 class TwitbookHeader extends LitElement {
     static get styles() {
-        return css`
+        return TwitbookHeaderStyles;
+    }
 
-        `;
+    closeMenuHandler(event) {
+        // close toggle menu
+        this.shadowRoot.getElementById('menuToggle').getElementsByTagName('input')[0].checked = false;
     }
 
     render() {
         return html`
-        <header>Twitbook</header>
+
+        <nav role="navigation">
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <ul id="menu">
+                    <a @click=${this.closeMenuHandler} href="/account/profil">
+                        <li>Profil</li>
+                    </a>
+
+                    <a @click=${this.closeMenuHandler} href="/account/feeds">
+                        <li>Actualités</li>
+                    </a>
+
+                    <a @click=${this.closeMenuHandler} href="/account/messages">
+                        <li>Messages</li>
+                    </a>
+
+                    <a @click=${this.closeMenuHandler} href="/account/notifications">
+                        <li>Notifications</li>
+                    </a>
+
+                    <a @click=${this.closeMenuHandler} href="/account/contact">
+                        <li>Contact</li>
+                    </a>
+
+                    <a @click=${this.closeMenuHandler} href="/account/deconnexion">
+                        <li>Déconnexion</li>
+                    </a>
+
+                </ul>
+            </div>
+
+            <div class="app-header-content">
+                <a class="logo" href="/">Twitbook</a>
+                <a class="sign-in" href="/account/profil">Profil</a>
+            </div>
+        </nav>
         `;
     }
 }
