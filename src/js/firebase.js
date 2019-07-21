@@ -7,5 +7,5 @@ firebase.initializeApp(document.config);
 
 export const Firebase = {
     auth: firebase.auth(),
-    database: firebase.database
+    database: firebase.database()
 }

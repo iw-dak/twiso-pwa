@@ -62,7 +62,7 @@ export class TwitbookRegister extends LitElement {
         }
 
         if (this.password !== this.passwordConfirmation) {
-            this.message = "Saisissez votre mot de passe de confirmation";
+            this.message = "Vos deux mots de passe ne sont pas identiques";
             return;
         }
 
@@ -76,7 +76,7 @@ export class TwitbookRegister extends LitElement {
                 email: this.email,
             });
 
-            auth.currentUser.updateProfile({
+            Firebase.auth.currentUser.updateProfile({
                 displayName: this.firstname
             });
 
@@ -94,11 +94,13 @@ export class TwitbookRegister extends LitElement {
             this.shadowRoot.querySelector('button').disabled = true;
 
             setTimeout(() => {
-                console.log('Redirect...');
+                console.log('login in ');
                 Firebase.auth.signInWithEmailAndPassword(email, password).then((user) => {
                     console.log('Login successfully', user);
+                    window.dispatchEvent(
+                        new CustomEvent('vaadin-router-go', { detail: { pathname: '/account/feeds' } }));
                 });
-            }, 2000);
+            }, 1000);
 
         }).catch(error => {
             let errorInformation = JSON.parse(JSON.stringify(error));
@@ -117,9 +119,10 @@ export class TwitbookRegister extends LitElement {
                 this.messageType = 'error';
                 return;
             }
-            console.log(errorInformation);
 
-            this.message = "Une erreur s'est produite lors de l'inscription";
+            if (!Utils.isEmpty()) {
+                this.message = "Une erreur s'est produite lors de l'inscription";
+            }
         })
     }
 

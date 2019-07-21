@@ -41,12 +41,17 @@ class TwitbookHeader extends LitElement {
                     <a @click=${this.closeMenuHandler} href="/account/contact">
                         <li>Contact</li>
                     </a>
+
+                    <a @click=${this.closeMenuHandler} href="/account/deconnexion">
+                        <li>Déconnexion</li>
+                    </a>
+
                 </ul>
             </div>
 
             <div class="app-header-content">
                 <a class="logo" href="/">Twitbook</a>
-                <a class="sign-in" href="/account/deconnexion">Se deconnecter</a>
+                <a class="sign-in" href="/account/profil">Profil</a>
             </div>
         </nav>
         `;
