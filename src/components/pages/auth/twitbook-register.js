@@ -94,7 +94,6 @@ export class TwitbookRegister extends LitElement {
             this.shadowRoot.querySelector('button').disabled = true;
 
             setTimeout(() => {
-                console.log('login in ');
                 Firebase.auth.signInWithEmailAndPassword(email, password).then((user) => {
                     console.log('Login successfully', user);
                     window.dispatchEvent(
