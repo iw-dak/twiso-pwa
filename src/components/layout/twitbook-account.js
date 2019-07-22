@@ -2,7 +2,6 @@ import { LitElement, html, css } from 'lit-element';
 import './twitbook-header';
 import { Utils } from '../../services/utils';
 import { Firebase } from '../../js/firebase';
-
 class TwitbookAccount extends LitElement {
 
     onBeforeEnter(context, commands, router) {
@@ -11,18 +10,14 @@ class TwitbookAccount extends LitElement {
         }
     }
 
-    firstUpdated() {
-        Firebase.auth.onAuthStateChanged((user) => {
-            if (user) { // User is signed in.
-                localStorage.setItem('is-logged', true);
-            } else {
-                localStorage.removeItem('is-logged');
-                if (!Utils.isAuthenticated()) {
-                    window.dispatchEvent(
-                        new CustomEvent('vaadin-router-go', { detail: { pathname: '/' } }));
-                }
-            }
-        });
+    async firstUpdated() {
+        try {
+            let user = await Utils.getUser();
+            console.log(user);
+        } catch (e) {
+            window.dispatchEvent(
+                new CustomEvent('vaadin-router-go', { detail: { pathname: '/' } }));
+        }
     }
 
     render() {

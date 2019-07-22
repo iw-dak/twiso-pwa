@@ -1,10 +1,19 @@
 import { LitElement, html, css } from 'lit-element';
+import { Firebase } from '../../../js/firebase';
+import '../../layout/twitbook-tweet';
 
 class TwitbookFeeds extends LitElement {
 
     constructor() {
         super();
-      }
+        this.user = '';
+    }
+
+    static get properties() {
+        return {
+            user: { type: Object },
+        };
+    }
 
     static get styles() {
         return css`
@@ -15,7 +24,9 @@ class TwitbookFeeds extends LitElement {
     }
 
     render() {
-        return html`<p>TwitbookFeeds</p>`;
+        return html`
+            <twitbook-tweet></twitbook-tweet>
+        `;
     }
 }
 customElements.define('twitbook-feeds', TwitbookFeeds);

@@ -21,15 +21,14 @@ class TwitbookAuth extends LitElement {
         }
     }
 
-    firstUpdated() {
-        Firebase.auth.onAuthStateChanged((user) => {
-            if (user) {
-                // User is signed in.
-                localStorage.setItem('is-logged', true);
-            } else {
-                localStorage.removeItem('is-logged');
-            }
-        });
+    async firstUpdated() {
+        try {
+            let user = await Utils.getUser();
+            window.dispatchEvent(
+                new CustomEvent('vaadin-router-go', { detail: { pathname: '/account/feeds' } }));
+        } catch (e) {
+            console.log('Not logged in');
+        }
     }
 
     render() {
