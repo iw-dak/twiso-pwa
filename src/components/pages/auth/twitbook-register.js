@@ -12,8 +12,8 @@ export class TwitbookRegister extends LitElement {
         this.email = '';
         this.password = '';
         this.passwordConfirmation = '';
-        this.message = false,
-            this.messageType = 'error';
+        this.message = false;
+        this.messageType = 'error';
     }
 
     static get properties() {
