@@ -23,7 +23,7 @@ export class TwitbookProfil extends LitElement {
 
         var storageRef = Firebase.store;
 
-        // File or Blob 
+        // File or Blob
         var file = this.file;
 
         // Create the file metadata
@@ -37,14 +37,25 @@ export class TwitbookProfil extends LitElement {
         // Upload compvared successfully, now we can get the download URL
         uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
             console.log('File available at', downloadURL);
-            var user = firebase.auth().currentUser;
-            //Link profile picture to user
+            var user = Firebase.auth.currentUser;
+
+            // //Link profile picture to user
             user.updateProfile({
                 photoURL: downloadURL
             }).then(function () {
                 // Update successful.
             }).catch(function (error) {
                 // An error happened.
+            });
+
+            Firebase.database.ref('/users/' + user.uid).once('value').then(function (snapshot) {
+                var userInfo = snapshot.val() || false;
+
+                if (userInfo) {
+                    localStorage.setItem('user-local', JSON.stringify(userInfo));
+                    userInfo.image = downloadURL;
+                    Firebase.database.ref('/users/' + user.uid).set(userInfo);
+                }
             });
         });
     }
