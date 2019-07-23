@@ -14,6 +14,7 @@ class TwitbookAccount extends LitElement {
 
         try {
             let user = await Utils.checkUser();
+            console.log(user);
         } catch (e) {
             window.dispatchEvent(
                 new CustomEvent('vaadin-router-go', { detail: { pathname: '/' } }));
