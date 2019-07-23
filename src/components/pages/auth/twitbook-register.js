@@ -7,11 +7,11 @@ export class TwitbookRegister extends LitElement {
 
     constructor() {
         super();
-        this.firstname = 'Kaba';
-        this.lastname = 'CONDE';
-        this.email = 'kabaconde15@gmail.com';
-        this.password = 'kabaconde';
-        this.passwordConfirmation = 'kabaconde';
+        this.firstname = '';
+        this.lastname = '';
+        this.email = '';
+        this.password = '';
+        this.passwordConfirmation = '';
         this.message = false;
         this.messageType = 'error';
     }
