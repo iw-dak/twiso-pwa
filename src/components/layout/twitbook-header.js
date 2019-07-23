@@ -38,10 +38,6 @@ class TwitbookHeader extends LitElement {
                         <li>Notifications</li>
                     </a>
 
-                    <a @click=${this.closeMenuHandler} href="/account/contact">
-                        <li>Contact</li>
-                    </a>
-
                     <a @click=${this.closeMenuHandler} href="/account/deconnexion">
                         <li>Déconnexion</li>
                     </a>
