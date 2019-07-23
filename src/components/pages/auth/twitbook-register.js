@@ -70,14 +70,16 @@ export class TwitbookRegister extends LitElement {
             console.log('Registration successful', user);
 
             var usersRef = Firebase.database.ref(`users/${user.user.uid}`);
-
-            usersRef.set({
+            var userInfo = {
                 firstname: this.firstname,
                 lastname: this.lastname,
                 email: this.email,
                 image: 'https://s3.amazonaws.com/uifaces/faces/twitter/edkf/128.jpg',
                 username: '@' + Utils.sluggify(this.firstname + ' ' + this.lastname)
-            });
+            };
+
+            usersRef.set(userInfo);
+            localStorage.setItem('user-local', JSON.stringify(userInfo));
 
             Firebase.auth.currentUser.updateProfile({
                 displayName: this.firstname

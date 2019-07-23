@@ -13,6 +13,7 @@ export const Utils = {
         } else {
             localStorage.removeItem('is-logged');
             localStorage.removeItem('user');
+            localStorage.removeItem('user-local');ƒ
         }
     },
     checkUser() {

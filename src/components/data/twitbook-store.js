@@ -17,7 +17,6 @@ class TwitbookStore extends LitElement {
 
     firstUpdated() {
         Firebase.db.collection(this.collection).onSnapshot(ref => {
-            console.log('Kaba CONDE 1');
             ref.docChanges().forEach(change => {
                 const { oldIndex, newIndex, doc, type } = change;
                 if (type == 'added') {

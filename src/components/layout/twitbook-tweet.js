@@ -46,7 +46,8 @@ export class TwitbookTweet extends LitElement {
 
         // get user information
         var userRef = Firebase.database.ref(`users/${user.uid}`);
-        var userChange = false;
+        var userChange = JSON.parse(localStorage.getItem('user-local'));
+        console.log(userChange)
         userRef.on('value', function (snapshot) {
             userChange = snapshot.val();
         });
@@ -55,6 +56,7 @@ export class TwitbookTweet extends LitElement {
         var newRef = Firebase.database.ref('tweets').push({
             text: newTweetText
         });
+
         var newID = newRef.getKey();
         Firebase.database.ref(`tweets/${newID}/user`).set({
             firstname: userChange.firstname,
