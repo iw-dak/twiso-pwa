@@ -2,9 +2,12 @@ import { LitElement, html } from 'lit-element';
 import { Firebase } from '../../../js/firebase';
 
 class TwitbookLogout extends LitElement {
-    onBeforeEnter(context, commands, router) {
-        Firebase.auth.signOut();
-        return commands.redirect('/');
+
+    firstUpdated() {
+        Firebase.auth.signOut().then(() => {
+            window.dispatchEvent(
+                new CustomEvent('vaadin-router-go', { detail: { pathname: '/' } }));
+        });
     }
 
     render() {

@@ -69,11 +69,10 @@ export class TwitbookRegister extends LitElement {
         Firebase.auth.createUserWithEmailAndPassword(this.email, this.password).then(user => {
             console.log('Registration successful', user);
 
-            Firebase.database.ref().child("users").push({
-                uid: user.user.uid,
+            Firebase.database.ref(`users/${user.user.uid}`).set({
                 firstname: this.firstname,
                 lastname: this.lastname,
-                email: this.email,
+                email: this.email
             });
 
             Firebase.auth.currentUser.updateProfile({
