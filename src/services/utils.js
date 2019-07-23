@@ -9,13 +9,13 @@ export const Utils = {
     setCredentials(user) {
         if (user) {
             localStorage.setItem('is-logged', true);
-            localStorage.setItem('user', user);
+            localStorage.setItem('user', JSON.stringify(user));
         } else {
             localStorage.removeItem('is-logged');
             localStorage.removeItem('user');
         }
     },
-    getUser() {
+    checkUser() {
         return new Promise((resolve, reject) => {
             Firebase.auth.onAuthStateChanged((user) => {
                 if (user) { // User is signed in.
@@ -36,5 +36,14 @@ export const Utils = {
         }
         return true;
     },
-
+    getUser() {
+        return JSON.parse(localStorage.getItem('user'));
+    },
+    sluggify(text) {
+        return text
+            .toLowerCase()
+            .replace(/ /g, '_')
+            .replace(/[^\w-]+/g, '')
+            ;
+    }
 };

@@ -21,6 +21,8 @@
         "lit-element": "^2.2.0"
     },
     "devDependencies": {
+        "faker": "^4.1.0",
+        "firebase-admin": "^8.2.0",
         "polymer-cli": "^1.9.11",
         "workbox-cli": "^4.3.1"
     }
