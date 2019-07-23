@@ -4,6 +4,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 
+// to avoid Firebase App named '[DEFAULT]' already exists (app/duplicate-app) error...
 if (!firebase.apps.length) {
     firebase.initializeApp(document.config);
 }
