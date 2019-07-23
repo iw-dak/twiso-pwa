@@ -6,11 +6,15 @@ export const TwitbookHeaderStyles = css`
     }
 
     nav {
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
         background: white;
         height: 50px;
         background: var(--theme-primary);
-        box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
+        z-index: 2;
+        box-shadow: 0 0 2px rgba(0,0,0,.14), 0 2px 4px rgba(0,0,0,.28);
     }
 
     a {
